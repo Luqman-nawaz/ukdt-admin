@@ -134,6 +134,10 @@
 
           <i class="fas fa-users-cog"></i> &nbsp; Manage Orders</a>
 
+          <a href="mg-coaching.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Coaching Orders</a>
+
           <a href="mg-admins.php" class="list-group-item list-group-item-action waves-effect">
 
         <i class="fas fa-user-shield"></i> &nbsp; Manage Admins</a>
