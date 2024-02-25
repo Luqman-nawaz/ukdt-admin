@@ -43,26 +43,43 @@ session_start();
 		        </div>
 
 	      </div>
+
+        <?php
+
+        if(isset($_GET['done'])){
+
+        ?>
+
+        <div class="alert alert-success" style="text-align: center;"> Order Marked Complete Sucessfully </div>
+
+        <?php } ?>
+
+
           <div class="jumbotron">
           <h3 class="text-center">Order Type - <?= $re->boost_type;?></h3>
           <h3 class="text-center">Ingame Role: <?= $re->ingame_role;?></h3>
-          <h3 class="text-center">Number of Reviews: ➡ <?= $re->ingame_role;?></h3>
+          <h3 class="text-center">Number of Reviews: ➡ <?= $re->no_of_reviews;?></h3>
           <h3 class="text-center">Priority Order ➡ <?php if($re->priority_order == 0){ echo "No"; }else {echo "Yes";};?></h3>
           <h3 class="text-center">Order Created: <?= date("F jS, Y", strtotime($re->created_at)); ?></h3>
 
           <hr>
             <?php
-                $q_order = "SELECT * FROM `coachingpayments` WHERE `coaching_id` = '$id'";
+                $order_id = $re->coachingid;
+                $q_order = "SELECT * FROM `coachingpayments` WHERE `coaching_id` = '$order_id'";
                 $r_order = mysqli_query($con, $q_order);
                 $re_order = mysqli_fetch_object($r_order);
+                if(mysqli_num_rows($r_order) == 0){
+                  die('
+                  <p style="text-align:center;">Account details not yet provided</p><br>
+                    <a class="btn btn-danger btn-sm" href="remove_coaching_order.php?id='.$order_id.'" role="button">Remove</a>');
+                }
             ?>
             <div class="card text-center mx-auto" style="width: 20rem;">
                 <div class="card-body">
                     <h5 class="font-weight-bold mb-3">Account Details</h5>
-                    <p class="mb-0">Name: <?= $re_order->name; ?></p>
+                    <p class="mb-0">Total Amount: <?= $re_order->total_amount; ?>$</p>
+                    <p class="mb-0">Payment Status: <?= $re_order->order_status; ?></p>
                     <p class="mb-0">Payment Method: <?= $re_order->payment_method; ?></p>
-                    <p class="mb-0">Total Amount: <?= $re_order->total_amount; ?></p>
-                    <p class="mb-0">Order Status: <b><?= $re_order->order_status; ?></b></p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -81,8 +98,8 @@ session_start();
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-success btn-sm" href="#" role="button">Mark Complete</a>
-                    <a class="btn btn-danger btn-sm" href="#" role="button">Remove</a>
+                    <a class="btn btn-success btn-sm" href="complete_coaching_order.php?id=<?=$order_id; ?>" role="button">Mark Complete</a>
+                    <a class="btn btn-danger btn-sm" href="remove_coaching_order.php?id=<?=$order_id; ?>" role="button">Remove</a>
                 </div>
             </div>
         </div>

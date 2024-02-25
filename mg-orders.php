@@ -34,13 +34,34 @@ session_start();
 
 		          <h4 class="mb-2 mb-sm-0 pt-1">
 
-		            Manage Users (<?= mysqli_num_rows($r); ?>)
+		            Manage Orders (<?= mysqli_num_rows($r); ?>)
 
 		          </h4>
 
 		        </div>
 
 	      </div>
+
+		  <?php
+
+			if(isset($_GET['err'])){
+
+			?>
+
+			<div class="alert alert-warning" style="text-align: center;"> Some Error occured </div>
+
+			<?php } ?>
+
+			<?php
+
+				if(isset($_GET['done'])){
+
+				?>
+
+				<div class="alert alert-success" style="text-align: center;"> Order Removed Sucessfully </div>
+
+				<?php } ?>
+
 		    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
 
 			  <thead>

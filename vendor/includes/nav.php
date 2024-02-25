@@ -140,7 +140,11 @@
 
           <a href="mg-admins.php" class="list-group-item list-group-item-action waves-effect">
 
-        <i class="fas fa-user-shield"></i> &nbsp; Manage Admins</a>
+          <i class="fas fa-user-shield"></i> &nbsp; Manage Admins</a>
+
+          <a href="mg-order-amounts.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-user-shield"></i> &nbsp; Manage Order Amounts</a>
 
         <a href="mg-contact.php" class="list-group-item list-group-item-action waves-effect">
 
