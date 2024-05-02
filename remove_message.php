@@ -18,7 +18,7 @@
 
 	if(!mysqli_stmt_prepare($statement, $q)){
 
-		header("location:mg-messages.php?err");
+		header("location:mg-contact.php?err");
 
 	}
 
@@ -26,11 +26,11 @@
 
 	if(mysqli_stmt_execute($statement)){
 
-		header("location:mg-messages.php?rdone");
+		header("location:mg-contact.php?rdone");
 
 	}else{
 
-		header("location:mg-messages.php?err");
+		header("location:mg-contact.php?err");
 
 	}
 

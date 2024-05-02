@@ -36,7 +36,7 @@
 
 	if(mysqli_stmt_execute($statement)){
 
-		header("location:mg-coaching.php?done");
+		header("location:mg-coaching.php?done=Coaching Order Removed Successfully");
 
 	}else{
 

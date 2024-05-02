@@ -41,6 +41,11 @@ session_start();
 		        </div>
 
 	      </div>
+
+		  	<?php if(isset($_GET['done'])){	?>
+				<div class="alert alert-success" style="text-align: center;"> <?= $_GET['done']; ?> </div>
+			<?php } ?>
+
 		    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
 
 			  <thead>
