@@ -16,8 +16,22 @@ require_once './vendor/autoload.php';
 
 	require_once 'vendor/includes/config.php';
 
+	
 	$id = $_GET['id'];
+
+	$q_order = "SELECT `user_id` FROM `boosts` WHERE `id` = '$id'";
+	$r_order = mysqli_query($con, $q_order);
+	$re_order = mysqli_fetch_assoc($r_order);
+	$user_id = $re_order['user_id'];
+
+	$q_user = "SELECT * FROM `users` WHERE `id` = '$user_id'";
+	$r_user = mysqli_query($con, $q_user);
+	$re_user = mysqli_fetch_assoc($r_user);
+	$user_mail = $re_user['email'];
+
     $amount = "delivered";
+
+	
 
 	$q = "UPDATE `payments` SET `order_status` = '$amount' WHERE `order_id` = '$id'";
 
@@ -34,7 +48,7 @@ require_once './vendor/autoload.php';
 
 		$email = (new Email())
 					->from('support@myboost.gg')
-					->to($email)
+					->to($user_mail)
 					->subject('MyBoost Order Update')
 					->text($message)
 					->html($message);
