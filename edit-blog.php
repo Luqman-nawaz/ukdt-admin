@@ -10,7 +10,7 @@ session_start();
 
     ?>
 
-    <script src="https://cdn.tiny.cloud/1/q7bi2vrbx9tokdq93odff07td7bu48vxsvapfnfe7fo3gqdx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/8zasoy5qn1ig63iam4b7v7apvzcbj5jq4dtddjcdhqfyhsso/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <?php
 
