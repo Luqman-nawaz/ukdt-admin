@@ -4,19 +4,13 @@
 
     if(!$_SESSION['username'] && $_SESSION['userpass']){
 
-    	header("location:https://gamewrap.net/");
+    	header("location:/");
 
     }
 
 	require_once 'vendor/includes/config.php';
 
 	$id = mysqli_real_escape_string($con, $_GET['id']);
-
-	$q_orders = "DELETE FROM `boosts` WHERE `user_id` = '$id'";
-	$r_order = mysqli_query($con, $q_orders);
-
-	$q_orders = "DELETE FROM `coachings` WHERE `user_id` = '$id'";
-	$r_order = mysqli_query($con, $q_orders);
 
 	$q = "DELETE FROM `users` WHERE `id` = ?;";
 

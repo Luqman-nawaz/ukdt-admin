@@ -3,22 +3,20 @@
     session_start();
 
     if(!$_SESSION['username'] && $_SESSION['userpass']){
-
     	header("location:https://gamewrap.net/");
-
     }
 
 	require_once 'vendor/includes/config.php';
 
 	$id = mysqli_real_escape_string($con, $_GET['id']);
 
-	$q = "DELETE FROM `orderamounts` WHERE `id` = ?;";
+	$q = "DELETE FROM `blogs` WHERE `id` = ?;";
 
 	$statement = mysqli_stmt_init($con);
 
 	if(!mysqli_stmt_prepare($statement, $q)){
 
-		header("location:mg-order-amounts.php?err");
+		header("location:mg-blog.php?err=Could not remove post");
 
 	}
 
@@ -26,11 +24,11 @@
 
 	if(mysqli_stmt_execute($statement)){
 
-		header("location:mg-order-amounts.php?done");
+		header("location:mg-blog.php?done=Post Removed Successfully!");
 
 	}else{
 
-		header("location:mg-order-amounts.php?err");
+		header("location:mg-blog.php?err=Could not remove post");
 
 	}
 

@@ -10,7 +10,9 @@ session_start();
 	include_once 'vendor/includes/head.php';
     include_once 'vendor/includes/nav.php';
 
-    $q = "SELECT *, `users`.id as userid FROM `users` INNER JOIN `coins` ON users.`id` = coins.`user_id` ORDER BY users.`id` DESC";
+    $user_id = $_GET['id'];
+
+    $q = "SELECT * FROM `payments` WHERE `user_id` = '$user_id' ORDER BY `id` DESC";
 
     $r = mysqli_query($con, $q);
 
@@ -48,14 +50,9 @@ session_start();
 
 			    <tr>
 
-			      <th class="th-sm">Name</th>
-			      <th class="th-sm">Email</th>
-				  <th class="th-sm">Verification</th>
-				  <th class="th-sm">Country</th>
-				  <th class="th-sm">Phone No</th>
-				  <th class="th-sm">Wallet</th>
-				  <th class="th-sm">Balance</th>
-			      <th class="th-sm">Delete</th>
+			      <th class="th-sm">Total Amount</th>
+			      <th class="th-sm">Status</th>
+                  <th class="th-sm">Ordered On</th>
 
 			    </tr>
 
@@ -67,14 +64,9 @@ session_start();
 
 			    <tr>
 
-			    	<td><?php echo $re['name']; ?></td>
-					<td><?php echo $re['email']; ?></td>
-					<td><?php echo ($re['email_verified_at'] == Null) ? "Not Verified" : date('Y-m-d', strtotime($re['email_verified_at'])); ?></td>
-					<td><?php echo $re['country']; ?></td>
-					<td><?php echo $re['phone_no']; ?></td>
-					<td><?php echo $re['wallet_id']; ?></td>
-					<td><?php echo $re['ukdt_coins']; ?></td>
-			      	<td><a href="remove_user.php?id=<?php echo $re['userid']; ?>"><button class="btn btn-danger btn-sm">Remove</button></a></td>
+			    	<td><?php echo $re['total_amount']; ?> £</td>
+					<td><?php echo $re['order_status']; ?></td>
+					<td><?php echo ($re['created_at'] == Null) ? "No Recorded Date" : date('Y-m-d', strtotime($re['created_at'])); ?></td>
 
 			    </tr>
 

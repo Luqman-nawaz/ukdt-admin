@@ -72,6 +72,34 @@ session_start();
 
         </div>
 
+      <div class="container">
+
+        <div class="list-group list-group-sh">
+
+          <a href="mg-users.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Users</a>
+
+          <a href="mg-orders.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Franchises</a>
+
+          <a href="mg-orders.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Advertising</a>
+
+          <a href="mg-admins.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-user-shield"></i> &nbsp; Manage Admins</a>
+
+          <a href="mg-contact.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-user-shield"></i> &nbsp; Contact Messages</a>
+
+        </div>
+
+      </div>
+
 
 
       </div>

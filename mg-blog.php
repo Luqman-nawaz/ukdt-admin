@@ -14,7 +14,7 @@ session_start();
 
     
 
-    $q = "SELECT *, users.`name` as `username`, coachings.`id` as `coachingid` FROM `coachings` INNER JOIN `users` ON users.`id` = coachings.`user_id` ORDER BY coachings.`id` DESC";
+	$q = "SELECT * FROM `blogs` ORDER BY `id` DESC";
 
     $r = mysqli_query($con, $q);
 
@@ -34,7 +34,7 @@ session_start();
 
 		          <h4 class="mb-2 mb-sm-0 pt-1">
 
-		            Manage Coaching Orders (<?= mysqli_num_rows($r); ?>)
+		            Manage Blog (<?= mysqli_num_rows($r); ?>)
 
 		          </h4>
 
@@ -42,9 +42,11 @@ session_start();
 
 	      </div>
 
-		  	<?php if(isset($_GET['done'])){	?>
-				<div class="alert alert-success" style="text-align: center;"> <?= $_GET['done']; ?> </div>
-			<?php } ?>
+			<?php if(isset($_GET['err'])){ ?> <div class="alert alert-warning" style="text-align: center;"> Some Error occured </div>	<?php } ?>
+
+			<?php if(isset($_GET['done'])){ ?> <div class="alert alert-success" style="text-align: center;"> <?= $_GET['done']; ?> </div> <?php } ?>
+
+			<a href="write-a-post.php"><button class="btn btn-success"> Write New Post </button></a>
 
 		    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
 
@@ -52,31 +54,27 @@ session_start();
 
 			    <tr>
 
-			      <th class="th-sm">Order By
+			      <th class="th-sm">Title
 
 			      </th>
 
-			      <th class="th-sm">Boost Type
+			      <th class="th-sm">Description
 
 			      </th>
 
-                  <th class="th-sm">In Game Role
+                  <th class="th-sm">slug
 
 			      </th>
 
-			      <th class="th-sm">No of Reviews
+				  <th class="th-sm">View
 
 			      </th>
 
-			      <th class="th-sm">Priority Order
+				  <th class="th-sm">Edit
 
 			      </th>
 
-			      <th class="th-sm">Order Placed On
-
-			      </th>
-
-                  <th class="th-sm">View Details
+				  <th class="th-sm">Delete
 
 			      </th>
 
@@ -90,19 +88,17 @@ session_start();
 
 			    <tr>
 
-			      <td><?php echo $re['username']; ?></td>
+			      <td><?php echo $re['title']; ?></td>
 
-			      <td><?php echo $re['name']; ?></td>
+			      <td><?php echo $re['description']; ?></td>
                   
-                  <td><?php echo $re['boost_type']; ?></td>
+                  <td><?php echo $re['slug']; ?></td>
 
-                  <td><?php echo $re['ingame_role']; ?></td>
+				  <td><a href="https://ukdt.co/blog/<?= $re['slug']; ?>"><button class="btn btn-success btn-sm">View</button></a></td>
 
-                  <td><?php echo $re['priority_order']; ?></td>
+				  <td><a href="edit-blog.php?id=<?= $re['id']; ?>"><button class="btn btn-warning btn-sm">Edit</button></a></td>
 
-			      <td><?php echo date("F jS, Y", strtotime($re['created_at'])); ?></td>
-
-			      <td><a href="coaching-order-details.php?id=<?php echo $re['coachingid']; ?>"><button class="btn btn-info btn-sm">View Details</button></a></td>
+				  <td><a href="remove_blog.php?id=<?= $re['id']; ?>"><button class="btn btn-danger btn-sm">Remove</button></a></td>
 
 			    </tr>
 

@@ -126,29 +126,21 @@
 
       <div class="list-group list-group-sh">
 
-      <a href="mg-users.php" class="list-group-item list-group-item-action waves-effect">
-
-      <i class="fas fa-users-cog"></i> &nbsp; Manage Users</a>
-
-      <a href="mg-orders.php" class="list-group-item list-group-item-action waves-effect">
-
-          <i class="fas fa-users-cog"></i> &nbsp; Manage Orders</a>
-
-          <a href="mg-coaching.php" class="list-group-item list-group-item-action waves-effect">
-
-          <i class="fas fa-users-cog"></i> &nbsp; Manage Coaching Orders</a>
-
           <a href="mg-admins.php" class="list-group-item list-group-item-action waves-effect">
 
-          <i class="fas fa-user-shield"></i> &nbsp; Manage Admins</a>
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Admins</a>
 
-          <a href="mg-order-amounts.php" class="list-group-item list-group-item-action waves-effect">
+          <a href="mg-users.php" class="list-group-item list-group-item-action waves-effect">
 
-          <i class="fas fa-user-shield"></i> &nbsp; Manage Order Amounts</a>
+          <i class="fas fa-users-cog"></i> &nbsp; Manage Users</a>
 
-        <a href="mg-contact.php" class="list-group-item list-group-item-action waves-effect">
+          <a href="mg-purchase-history.php" class="list-group-item list-group-item-action waves-effect">
 
-        <i class="fas fa-user-shield"></i> &nbsp; Contact Messages</a>
+          <i class="fas fa-user-shield"></i> &nbsp; UKDT Purchase History</a>
+
+          <a href="mg-blog.php" class="list-group-item list-group-item-action waves-effect">
+
+          <i class="fas fa-user-shield"></i> &nbsp; Manage Blog</a>
 
         </div>
 

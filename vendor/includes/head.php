@@ -12,7 +12,7 @@
 
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>MyBoost.GG Admin Panel</title>
+  <title>UKDT Admin Panel</title>
 
   <!-- Font Awesome -->
 

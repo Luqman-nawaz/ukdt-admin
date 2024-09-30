@@ -55,7 +55,7 @@ session_start();
 				  <th class="th-sm">Phone No</th>
 				  <th class="th-sm">Wallet</th>
 				  <th class="th-sm">Balance</th>
-			      <th class="th-sm">Delete</th>
+			      <th class="th-sm">View Purchase History</th>
 
 			    </tr>
 
@@ -74,7 +74,7 @@ session_start();
 					<td><?php echo $re['phone_no']; ?></td>
 					<td><?php echo $re['wallet_id']; ?></td>
 					<td><?php echo $re['ukdt_coins']; ?></td>
-			      	<td><a href="remove_user.php?id=<?php echo $re['userid']; ?>"><button class="btn btn-danger btn-sm">Remove</button></a></td>
+			      	<td><a href="user-purchase-history.php?id=<?php echo $re['userid']; ?>"><button class="btn btn-info btn-sm">View History</button></a></td>
 
 			    </tr>
 

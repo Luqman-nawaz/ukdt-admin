@@ -1,12 +1,6 @@
 <?php
 
 session_start();
-include_once 'vendor/includes/config.php';
-
-$id = $_GET['id'];
-$q = "SELECT * FROM `orderamounts` WHERE `id` = '$id'";
-$r = mysqli_query($con, $q);
-$re = mysqli_fetch_object($r);
 
   if($_SESSION['username'] && $_SESSION['userpass']){
 
@@ -32,7 +26,7 @@ $re = mysqli_fetch_object($r);
 
               <h4 class="mb-2 mb-sm-0 pt-1">
 
-                Add Administrators
+                Add Representative
 
               </h4>
 
@@ -40,15 +34,11 @@ $re = mysqli_fetch_object($r);
 
         </div>
 
-        <?php
+        <?php if(isset($_GET['err'])){ ?>
 
-        if(isset($_GET['err'])){
+            <div class="alert alert-warning" style="text-align: center;"> Some Error occured </div>
 
-        ?>
-
-      <div class="alert alert-warning" style="text-align: center;"> Some Error occured </div>
-
-      <?php } ?>
+        <?php } ?>
 
       <?php
 
@@ -56,7 +46,7 @@ $re = mysqli_fetch_object($r);
 
         ?>
 
-      <div class="alert alert-success" style="text-align: center;"> Price Updated </div>
+      <div class="alert alert-success" style="text-align: center;"> New Representative Added Sucessfully </div>
 
       <?php } ?>
 
@@ -64,28 +54,39 @@ $re = mysqli_fetch_object($r);
 
           <div class="container">
 
-            <p style="text-align:center;">Boost Type: <?= $re->boost_type; ?></p>
-            <p style="text-align:center;">Current Level: <?= $re->current_level; ?></p>
-            <p style="text-align:center;">Desired Level: <?= $re->desired_level; ?></p>
-
-            <form action="edit_orderamounts.php" method="post">
+            <form action="add_representative.php" method="post" enctype="multipart/form-data">
 
               <div class="form-row">
-                <input type="text" name="id" value="<?= $re->id; ?>" style="display: none; "/>
 
-                <div class="col-md-1"></div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
 
-                  <label for="useremail">Amount</label>
+                  <label for="useremail">Representative Name</label>
 
-                  <input type="text" class="form-control" name="amount" id="useremail" placeholder="<?= $re->amount; ?>">
+                  <input type="text" class="form-control" name="name" id="useremail" placeholder="Representative Name">
 
                 </div>
 
+                <div class="form-group col-md-6">
+
+                  <label for="text">Representative Role</label>
+
+                  <input type="text" class="form-control" name="role" id="Product" placeholder="Representative Role">
+
+                </div>
+
+                <div class="form-group col-md-6">
+
+                  <label for="text">Featured Image</label>
+
+                  <input type="file" class="form-control" name="image" id="FeaturedImage" placeholder="Featured Image">
+
+                </div>
+
+
                 <div class="form-group col-md-1 pt-4">
 
-                  <input type="submit" class="btn btn-success btn-sm" value="Update" />
+                  <input type="submit" class="btn btn-success btn-sm" value="Add" />
 
                 </div>
 
