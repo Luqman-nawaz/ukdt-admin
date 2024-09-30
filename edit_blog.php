@@ -35,7 +35,7 @@
 
                 //processing image with name convert to microseconds
 
-                $uploaddir = "../ukdt/public/images/";
+                $uploaddir = "../images/";
 
                 $temp = explode(".", $_FILES["image"]["name"]);
 
